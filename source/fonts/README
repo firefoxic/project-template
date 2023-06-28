@@ -1,0 +1,14 @@
+# Папка для шрифтов
+
+Структура файлов:
+
+```bash
+./
+├── lato-regular.woff
+├── lato-regular.woff2
+├── oswald-medium.woff
+├── oswald-medium.woff2
+├── oswald-regular.woff
+├── oswald-regular.woff2
+└── README
+```

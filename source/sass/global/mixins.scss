@@ -1,0 +1,43 @@
+// Вспомогательный миксин, используемый в основном
+@mixin bg-adaptive($name, $format) {
+	@each $viewport in getviewports($name) {
+		$media-query: null;
+
+		@if $viewport == mobile {
+			$media-query: all;
+		}
+
+		@if $viewport == tablet {
+			$media-query: $not-mobile;
+		}
+
+		@if $viewport == desktop {
+			$media-query: $desktop-only;
+		}
+
+		@media #{$media-query} {
+			$dppx: 1;
+			$url: null;
+
+			@while $dppx <= getmaxdppx($name) {
+				$url: $url, url("../../img/#{$name}-#{$viewport}@#{$dppx}x.#{$format}") #{$dppx}x;
+				$dppx: $dppx + 1;
+			}
+			/* stylelint-disable-next-line value-no-vendor-prefix */
+			--bg-image: -webkit-image-set(#{$url});
+		}
+	}
+}
+
+// Основной миксин, генерирующий все возможные варианты растрового фона (в виде кастомки)
+@mixin bg-image($name) {
+	$formats: getext($name), webp, avif;
+
+	@each $format in $formats {
+		$className: if(($format == webp) or ($format == avif), ".#{$format}", ".fallback");
+
+		#{$className} & {
+			@include bg-adaptive($name, $format);
+		}
+	}
+}

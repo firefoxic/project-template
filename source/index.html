@@ -1,0 +1,12 @@
+{% set pageId = 0 %}
+{% set permalink = pages[pageId].path %}
+{% extends "./templates/_layout.twig" %}
+
+{% block main %}
+
+	Контент главной страницы
+
+	{# Пример вставки picture #}
+	{% include "./templates/picture.twig" with {name: "example", class: "example image", alt: "Альтернативный текст."} %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+.page {
+	block-size: 100%;
+	font-family: var(--main-font);
+	font-size: 14px;
+	line-height: 18px;
+	color: var(--main-color);
+}
+
+.page__body {
+	margin: 0;
+	min-block-size: 100%;
+
+	// Пример вставки адаптивного растра в фон
+	& main::before {
+		content: "Фон псевдоэлемента";
+		display: block;
+		inline-size: 100%;
+		aspect-ratio: 1;
+		background: oklch(96% 0 0) var(--bg-image) no-repeat center / contain;
+	}
+
+	@include bg-image(example); // добавляет кастомку в разные @media, поэтому не нужно его вставлять в псевдики, лучше просто в блок/элемент
+	// Конец примера
+}
+
+// пример интерполяции в @media
+.page__centerer {
+	margin-inline: 20px;
+
+	@media #{$not-mobile} {
+		margin-inline: 30px;
+	}
+
+	@media #{$desktop-only} {
+		inline-size: 1220px;
+		margin-inline: auto;
+	}
+}

@@ -1,0 +1,34 @@
+@font-face {
+	font-family: "Oswald";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src:
+		url("../../fonts/oswald-regular.woff2") format("woff2"),
+		url("../../fonts/oswald-regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src:
+		url("../../fonts/oswald-medium.woff2") format("woff2"),
+		url("../../fonts/oswald-medium.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src:
+		url("../../fonts/lato-regular.woff2") format("woff2"),
+		url("../../fonts/lato-regular.woff") format("woff");
+}
+
+:root {
+	--main-font: "Lato", system-ui, sans-serif;
+	--accent-font: "Oswald", system-ui, sans-serif;
+}

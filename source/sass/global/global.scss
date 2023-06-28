@@ -1,0 +1,14 @@
+img {
+	height: auto;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+img[src*=".svg" i] {
+	object-fit: cover;	// для хрома, не понимающего contain у вектора
+}
+
+picture,
+source {
+	display: contents;	// это просто должно было быть в браузерах
+}

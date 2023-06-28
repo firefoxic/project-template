@@ -1,0 +1,29 @@
+{
+	"customSyntax": "postcss-scss",
+	"extends": "stylelint-config-firefoxic",
+	"rules": {
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"each",
+					"forward",
+					"if",
+					"include",
+					"mixin",
+					"use",
+					"while"
+				]
+			}
+		],
+		"function-no-unknown": [
+			true,
+			{
+				"ignoreFunctions": [
+					"/^get/",
+					"if"
+				]
+			}
+		]
+	}
+}
